@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄晓夏 — 舞蹈编导 · 舞蹈教师</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;600;700&family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f2ed;--bg-warm:#ece7df;--bg-deep:#e3ddd4;--cream:#faf8f5;--charcoal:#4a4540;--dark:#3a3530;--mid:#7a736a;--soft:#a09890;--accent:#b5a48e;--accent-warm:#c4ad92;--heading:#b09880;--line:rgba(74,69,64,.06);--nav-font:'DM Sans',sans-serif;--body-en:'Libre Caslon Text','EB Garamond',serif;--display:'Cormorant',serif}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--bg-deep) var(--bg)}
+body{background:var(--bg);color:var(--charcoal);font-family:var(--body-en),'Noto Serif SC','Georgia',serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:16px}
+::selection{background:rgba(176,152,128,.15);color:var(--dark)}
+
+.fabric-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:url('images/fabric-texture.jpg') center/cover no-repeat;animation:fabricBreath 20s ease-in-out infinite alternate}
+@keyframes fabricBreath{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.05) translate(-10px,8px)}100%{transform:scale(1.02) translate(5px,-5px)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:28px 52px;display:flex;justify-content:space-between;align-items:center;transition:all .6s cubic-bezier(.16,1,.3,1)}
+nav.scrolled{background:rgba(245,242,237,.92);backdrop-filter:blur(20px);padding:18px 52px;border-bottom:1px solid var(--line)}
+.nav-logo{font-family:var(--display);font-size:16px;letter-spacing:10px;font-weight:400;color:var(--charcoal);text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:var(--nav-font);color:var(--soft);text-decoration:none;font-size:12px;letter-spacing:3px;font-weight:400;transition:color .4s;position:relative;text-transform:uppercase}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--heading);transition:width .4s cubic-bezier(.16,1,.3,1)}
+.nav-links a:hover{color:var(--charcoal)}
+.nav-links a:hover::after{width:100%}
+.lang-toggle{display:flex;align-items:center;gap:6px;font-family:var(--nav-font);font-size:11px;letter-spacing:2px;color:var(--soft);cursor:pointer;user-select:none;border-left:1px solid var(--line);padding-left:24px;margin-left:4px}
+.lang-toggle span{padding:3px 8px;border-radius:2px;transition:all .3s}
+.lang-toggle span.active{color:var(--charcoal);background:rgba(74,69,64,.06)}
+.lang-toggle span:hover{color:var(--charcoal)}
+.mob-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.mob-btn span{display:block;width:22px;height:1px;background:var(--mid);margin:5px 0;transition:all .3s}
+.mob-nav{position:fixed;inset:0;background:rgba(245,242,237,.98);backdrop-filter:blur(20px);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .5s}
+.mob-nav.open{opacity:1;pointer-events:all}
+.mob-nav a{color:var(--mid);text-decoration:none;font-family:var(--nav-font);font-size:14px;letter-spacing:5px;font-weight:400;text-transform:uppercase}
+.mob-nav .lang-toggle{border:none;padding:0;margin-top:20px}
+
+/* HERO */
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-ct{position:relative;z-index:2;text-align:center}
+.hero-name{font-family:'Noto Serif SC',serif;font-size:clamp(48px,10vw,120px);font-weight:200;letter-spacing:.5em;color:var(--charcoal);opacity:0;animation:nameR 3s cubic-bezier(.16,1,.3,1) .3s forwards}
+@keyframes nameR{0%{opacity:0;transform:translateY(40px);letter-spacing:.8em}100%{opacity:1;transform:translateY(0);letter-spacing:.5em}}
+.hero-en{font-family:'Cormorant',serif;font-size:clamp(15px,1.8vw,20px);font-weight:300;font-style:italic;letter-spacing:8px;color:var(--soft);margin-top:16px;opacity:0;animation:fadeU 2.2s cubic-bezier(.16,1,.3,1) 1.2s forwards}
+.hero-rule{width:48px;height:1px;background:var(--heading);margin:28px auto 0;opacity:0;animation:fadeU 2s 1.8s forwards}
+.hero-tag{font-family:'Cormorant',serif;font-size:clamp(12px,1.1vw,14px);font-weight:400;letter-spacing:5px;color:var(--soft);margin-top:20px;opacity:0;animation:fadeU 2s cubic-bezier(.16,1,.3,1) 2s forwards;text-transform:uppercase}
+@keyframes fadeU{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+.scroll-h{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:fadeU 1.5s 3s forwards}
+.scroll-h span{font-family:'Cormorant',serif;font-size:11px;letter-spacing:5px;color:var(--soft);font-weight:400;text-transform:uppercase}
+.scroll-ln{width:1px;height:32px;background:var(--bg-deep);position:relative;overflow:hidden}
+.scroll-ln::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--heading);animation:scA 2.5s ease-in-out infinite}
+@keyframes scA{0%{top:-100%}50%{top:100%}100%{top:100%}}
+
+section,footer,.divider{position:relative;z-index:1}
+.rv{opacity:0;transform:translateY(40px);transition:all 1.2s cubic-bezier(.16,1,.3,1)}
+.rv.on{opacity:1;transform:translateY(0)}
+.rv-d1{transition-delay:.15s}
+.s-label{font-family:'Cormorant',serif;font-size:13px;letter-spacing:7px;color:var(--soft);text-transform:uppercase;margin-bottom:14px;font-weight:400}
+.s-title{font-family:'Noto Serif SC',serif;font-size:clamp(26px,4vw,46px);font-weight:200;color:var(--heading);letter-spacing:.12em;line-height:1.6}
+.divider{width:1px;height:72px;margin:0 auto;background:linear-gradient(180deg,transparent,var(--bg-deep),transparent)}
+
+.about{padding:140px 8vw;display:grid;grid-template-columns:1fr 1.3fr;gap:72px;align-items:center}
+.about-img{position:relative}
+.about-img img{width:100%;max-width:400px;aspect-ratio:3/4;object-fit:cover;filter:saturate(.9);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.about-img::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid rgba(176,152,128,.12);transition:all .8s}
+.about-img:hover img{filter:saturate(1)}
+.about-img:hover::before{top:-6px;left:-6px}
+.about-txt .s-title{margin-bottom:28px}
+.about-desc{font-size:16px;line-height:2.2;color:var(--mid);font-weight:400;letter-spacing:.02em}
+.about-desc .hl{color:var(--heading);font-weight:500}
+.about-roles{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.role-tag{padding:6px 16px;border:1px solid rgba(176,152,128,.15);font-family:'Cormorant',serif;font-size:12.5px;letter-spacing:3px;color:var(--mid);font-weight:400;background:rgba(250,248,245,.6);text-transform:uppercase}
+.about-sig{margin-top:32px;font-family:'Cormorant',serif;font-style:italic;font-size:18px;color:var(--heading);letter-spacing:3px}
+
+.pina{padding:110px 12vw;text-align:center;background:rgba(250,248,245,.7);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pina-q{font-family:'Cormorant',serif;font-size:clamp(20px,2.8vw,32px);font-weight:300;font-style:italic;line-height:2;color:var(--charcoal);max-width:660px;margin:0 auto}
+.pina-a{margin-top:28px;font-family:'Cormorant',serif;font-size:14px;color:var(--soft);letter-spacing:6px;font-weight:400;text-transform:uppercase}
+
+.philo{padding:140px 10vw;text-align:center;position:relative}
+.philo::before{content:'云';position:absolute;font-family:'Noto Serif SC',serif;font-size:clamp(140px,24vw,320px);font-weight:700;color:rgba(176,152,128,.03);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.philo-body{font-family:'Noto Serif SC',serif;font-size:clamp(15px,1.9vw,21px);font-weight:200;line-height:2.6;color:var(--charcoal);letter-spacing:.06em;max-width:700px;margin:36px auto 0}
+.philo-body .po{color:var(--heading);font-weight:400}
+.philo-src{margin-top:44px;font-family:'Cormorant',serif;font-size:13px;color:var(--soft);letter-spacing:6px;font-weight:400;text-transform:uppercase}
+
+.interlude{position:relative;height:68vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.int-bg{position:absolute;inset:0;background:url('images/cb7f435d5f1e2b6ea6dce3dc384085ea.jpeg') center/cover;filter:brightness(.85) saturate(.75)}
+.int-ov{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,rgba(245,242,237,.12) 25%,rgba(245,242,237,.12) 75%,var(--bg) 100%)}
+.int-ct{position:relative;z-index:2;text-align:center;max-width:600px;padding:0 20px}
+.int-ct p{font-family:'Noto Serif SC',serif;font-size:clamp(14px,1.7vw,18px);font-weight:200;line-height:2.6;color:#fff;letter-spacing:.1em;text-shadow:0 1px 20px rgba(0,0,0,.3)}
+.int-dash{display:block;width:36px;height:1px;background:rgba(255,255,255,.5);margin:24px auto}
+
+/* DIALOGUE */
+.dialogue{padding:140px 10vw}
+.dia-hd{text-align:center;margin-bottom:80px}
+.dia-list{max-width:780px;margin:0 auto}
+.dia-item{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--line)}
+.dia-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.dia-q{font-family:var(--body-en),'Noto Serif SC',serif;font-size:clamp(17px,2vw,22px);font-weight:400;color:var(--heading);letter-spacing:.01em;margin-bottom:24px;line-height:1.6}
+.dia-a{font-size:15.5px;line-height:2.4;color:var(--mid);font-weight:400;letter-spacing:.01em}
+
+.works{padding:140px 8vw;background:rgba(250,248,245,.5)}
+.works-hd{text-align:center;margin-bottom:90px}
+.wk{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;margin-bottom:120px}
+.wk:nth-child(even){grid-template-columns:1fr 1.3fr}
+.wk:nth-child(even) .wk-img{order:2}
+.wk:nth-child(even) .wk-info{order:1}
+.wk-img{position:relative;overflow:hidden}
+.wk-img img{width:100%;aspect-ratio:16/10;object-fit:cover;filter:saturate(.85);transition:all 1s cubic-bezier(.16,1,.3,1)}
+.wk-img:hover img{filter:saturate(1) brightness(1.02);transform:scale(1.02)}
+.wk-num{font-family:'Cormorant',serif;font-size:56px;font-weight:300;color:rgba(176,152,128,.12);line-height:1;margin-bottom:12px}
+.wk-title{font-family:'Noto Serif SC',serif;font-size:clamp(22px,2.8vw,36px);font-weight:200;color:var(--heading);letter-spacing:.2em;margin-bottom:10px}
+.wk-sub{font-family:'Cormorant',serif;font-style:italic;font-size:15.5px;color:var(--soft);letter-spacing:3px;margin-bottom:20px}
+.wk-desc{font-size:15px;line-height:2.1;color:var(--mid);font-weight:400;letter-spacing:.02em}
+.wk-tag{display:inline-block;margin-top:18px;padding:5px 14px;border:1px solid rgba(176,152,128,.18);font-family:'Cormorant',serif;font-size:12px;letter-spacing:3px;color:var(--heading);font-weight:400;margin-right:8px;background:rgba(250,248,245,.5);text-transform:uppercase}
+
+.videos{padding:120px 8vw}
+.vid-hd{text-align:center;margin-bottom:60px}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:24px}
+.vid-card{position:relative;aspect-ratio:16/9;background:var(--bg-warm);overflow:hidden}
+.vid-card video{width:100%;height:100%;object-fit:cover;display:block}
+
+.gallery{padding:140px 5vw;background:rgba(250,248,245,.5)}
+.gal-hd{text-align:center;margin-bottom:72px}
+.gal-grid{columns:3;column-gap:14px}
+.g-item{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;cursor:pointer}
+.g-item img{width:100%;display:block;filter:saturate(.82);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.g-item:hover img{filter:saturate(1) brightness(1.03);transform:scale(1.03)}
+.g-item .cap{position:absolute;bottom:12px;left:12px;z-index:2;font-family:'Cormorant',serif;font-size:12px;letter-spacing:3px;color:#fff;font-weight:400;opacity:0;transform:translateY(8px);transition:all .5s;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.g-item:hover .cap{opacity:1;transform:translateY(0)}
+.g-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(26,26,24,.35) 100%);opacity:0;transition:opacity .5s}
+.g-item:hover::after{opacity:1}
+
+.contact{padding:140px 8vw;text-align:center}
+.ct-title{font-family:'Noto Serif SC',serif;font-size:clamp(28px,4.5vw,52px);font-weight:200;letter-spacing:.3em;color:var(--heading);margin-bottom:16px}
+.ct-desc{font-size:15px;color:var(--mid);letter-spacing:2px;font-weight:400;line-height:2;max-width:440px;margin:0 auto 44px}
+.ct-links{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+.ct-links a{font-family:'Cormorant',serif;color:var(--soft);text-decoration:none;font-size:13px;letter-spacing:4px;font-weight:400;padding:8px 0;border-bottom:1px solid transparent;transition:all .4s;text-transform:uppercase}
+.ct-links a:hover{color:var(--heading);border-bottom-color:var(--heading)}
+
+footer{padding:44px 8vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-family:'Cormorant',serif;font-size:12px;color:var(--soft);letter-spacing:3px;font-weight:400}
+
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(245,242,237,.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s;cursor:pointer;backdrop-filter:blur(16px)}
+.lb.on{opacity:1;pointer-events:all}
+.lb img{max-width:88vw;max-height:88vh;object-fit:contain;transform:scale(.94);transition:transform .5s cubic-bezier(.16,1,.3,1);box-shadow:0 20px 80px rgba(0,0,0,.08)}
+.lb.on img{transform:scale(1)}
+.lb-x{position:absolute;top:24px;right:28px;font-family:'Cormorant',serif;font-size:16px;color:var(--mid);cursor:pointer;background:none;border:none;transition:color .3s;letter-spacing:3px;text-transform:uppercase}
+.lb-x:hover{color:var(--charcoal)}
+
+/* Language: hide inactive text */
+[data-en]{display:none}
+body.en [data-zh]{display:none}
+body.en [data-en]{display:inline}
+body.en [data-en-block]{display:block}
+body.en [data-zh-block]{display:none}
+[data-en-block]{display:none}
+[data-zh-block]{display:block}
+
+@media(max-width:900px){
+  nav{padding:18px 24px}.nav-links{display:none}.mob-btn{display:block}
+  .lang-toggle{border:none;padding:0;margin:0}
+  .about{grid-template-columns:1fr;padding:90px 6vw;gap:44px}
+  .about-img{max-width:320px;margin:0 auto}
+  .wk,.wk:nth-child(even){grid-template-columns:1fr;gap:32px}
+  .wk:nth-child(even) .wk-img{order:0}.wk:nth-child(even) .wk-info{order:0}
+  .gal-grid{columns:2}
+  footer{flex-direction:column;gap:10px;text-align:center}
+}
+@media(max-width:500px){.gal-grid{columns:1}}
+</style>
+</head>
+<body>
+
+<div class="fabric-bg"></div>
+<div class="lb" id="lb" onclick="clb()"><button class="lb-x">close</button><img src="" alt=""></div>
+
+<div class="mob-nav" id="mn">
+  <a href="#about" onclick="cm()"><span data-zh>关于</span><span data-en>About</span></a>
+  <a href="#philo" onclick="cm()"><span data-zh>理念</span><span data-en>Philosophy</span></a>
+  <a href="#dialogue" onclick="cm()"><span data-zh>对话</span><span data-en>Dialogue</span></a>
+  <a href="#works" onclick="cm()"><span data-zh>作品</span><span data-en>Works</span></a>
+  <a href="#gallery" onclick="cm()"><span data-zh>影像</span><span data-en>Gallery</span></a>
+  <a href="#contact" onclick="cm()"><span data-zh>联系</span><span data-en>Contact</span></a>
+  <div class="lang-toggle" onclick="toggleLang()"><span id="mlzh" class="active">中</span><span>|</span><span id="mlen">EN</span></div>
+</div>
+
+<nav id="nav">
+  <div class="nav-logo">黄 晓 夏</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about"><span data-zh>关于</span><span data-en>About</span></a></li>
+      <li><a href="#philo"><span data-zh>理念</span><span data-en>Philosophy</span></a></li>
+      <li><a href="#dialogue"><span data-zh>对话</span><span data-en>Dialogue</span></a></li>
+      <li><a href="#works"><span data-zh>作品</span><span data-en>Works</span></a></li>
+      <li><a href="#gallery"><span data-zh>影像</span><span data-en>Gallery</span></a></li>
+      <li><a href="#contact"><span data-zh>联系</span><span data-en>Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle" onclick="toggleLang()">
+      <span id="lzh" class="active">中</span><span>|</span><span id="len">EN</span>
+    </div>
+  </div>
+  <button class="mob-btn" onclick="tm()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ct">
+    <h1 class="hero-name"><span data-zh>黄 晓 夏</span><span data-en style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,7vw,90px);letter-spacing:.2em;font-weight:300">Xiaoxia Huang</span></h1>
+    <p class="hero-en"><span data-zh>Xiaoxia Huang</span><span data-en>黄 晓 夏</span></p>
+    <div class="hero-rule"></div>
+    <p class="hero-tag"><span data-zh>舞蹈编导 · 舞蹈教师</span><span data-en>Choreographer · Dance Educator</span></p>
+  </div>
+  <div class="scroll-h"><span>scroll</span><div class="scroll-ln"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img rv"><img src="images/IMG_3098.jpeg" alt="黄晓夏"></div>
+  <div class="about-txt rv rv-d1">
+    <div class="s-label">About</div>
+    <h2 class="s-title"><span data-zh>以身体书写诗篇</span><span data-en style="letter-spacing:.05em">Writing Poetry with the Body</span></h2>
+    <div data-zh-block>
+      <p class="about-desc">黄晓夏，舞蹈编导，舞蹈教师。现任<span class="hl">清华大学艺术教育中心</span>舞蹈教师，<span class="hl">清华大学学生无界舞蹈剧场（THU-BDT）</span>指导教师。<br><br>她相信身体是最诚实的语言，每一次呼吸都是一首诗。在舞台与生活的交界处，她用肢体编织光影，将人生的悲欢离合化为空气中流动的诗篇。<br><br>她的作品融合东方美学与当代舞蹈语汇，带领一群来自清华各院系、因热爱舞蹈而相聚的学生，在传统与现代之间寻找属于自己的艺术表达。</p>
+    </div>
+    <div data-en-block>
+      <p class="about-desc">Xiaoxia Huang is a choreographer and dance educator. She currently serves as a dance instructor at <span class="hl">Tsinghua University's Art Education Center</span> and faculty advisor of <span class="hl">Tsinghua Boundless Dance Theatre (THU-BDT)</span>.<br><br>She believes the body is the most honest language, and every breath is a poem. At the intersection of stage and life, she weaves light and shadow through movement, transforming the joys and sorrows of life into poetry flowing through air.<br><br>Her works blend Eastern aesthetics with contemporary dance vocabulary, leading students from across Tsinghua's departments — united by their love of dance — to find their own artistic expression between tradition and modernity.</p>
+    </div>
+    <div class="about-roles">
+      <span class="role-tag"><span data-zh>舞蹈编导</span><span data-en>Choreographer</span></span>
+      <span class="role-tag"><span data-zh>清华大学舞蹈教师</span><span data-en>Tsinghua Dance Instructor</span></span>
+      <span class="role-tag"><span data-zh>无界舞蹈剧场 指导教师</span><span data-en>Boundless Dance Theatre Advisor</span></span>
+    </div>
+    <div class="about-sig">— Xiaoxia Huang</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PINA -->
+<section class="pina rv">
+  <div class="s-label">Belief</div>
+  <blockquote class="pina-q">"I'm not interested in how people move,<br>I'm interested in what makes them move."</blockquote>
+  <div class="pina-a">— Pina Bausch</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PHILOSOPHY -->
+<section class="philo" id="philo">
+  <div class="rv">
+    <div class="s-label">Philosophy</div>
+    <h2 class="s-title"><span data-zh>以身体素描天空</span><span data-en style="letter-spacing:.05em">Sketching the Sky with the Body</span></h2>
+    <div class="philo-body">
+      <div data-zh-block>
+        <p>那些被我们称作人生的悲欢离合，<br>不过是大气层在亿万年尺度上<span class="po">一次微小的呼吸</span>。<br><br>自然从不说话，它只用<br>风的流动、雨的颗粒、光的颜色<br><span class="po">书写自己的故事</span>。<br><br>于是我决定——<br>让舞者代替云去<span class="po">"沉默地诉说"</span>。</p>
+      </div>
+      <div data-en-block>
+        <p>What we call the joys and sorrows of life<br>are merely <span class="po">a single tiny breath</span><br>of the atmosphere across billions of years.<br><br>Nature never speaks. It writes its own story<br>with the flow of wind, the grain of rain,<br>and <span class="po">the color of light</span>.<br><br>So I decided —<br>to let the dancers <span class="po">"speak in silence"</span><br>on behalf of the clouds.</p>
+      </div>
+    </div>
+    <div class="philo-src"><span data-zh>— 创 作 手 记</span><span data-en>— Choreographer's Notes</span></div>
+  </div>
+</section>
+
+<!-- INTERLUDE -->
+<section class="interlude">
+  <div class="int-bg"></div>
+  <div class="int-ov"></div>
+  <div class="int-ct rv">
+    <div data-zh-block>
+      <p>当舞者的指尖划过空气留白的瞬息，<br>当衣摆扬起带着光影的流金，<br>你会突然理解——<br><br>原来云的运动就是天空的舞蹈，<br>而我们每个人身体里，<br>都藏着一片等待被唤醒的<span style="color:var(--accent)">浩瀚云海</span>。</p>
+    </div>
+    <div data-en-block>
+      <p>When a dancer's fingertips trace<br>a fleeting pause through the air,<br>when fabric rises catching streams of light —<br><br>you suddenly understand:<br>the movement of clouds is the sky's dance,<br>and within each of us hides<br>a <span style="color:var(--accent)">vast ocean of clouds</span> waiting to be awakened.</p>
+    </div>
+    <span class="int-dash"></span>
+  </div>
+</section>
+
+<!-- DIALOGUE — 对话：舞蹈哲学 -->
+<section class="dialogue" id="dialogue">
+  <div class="dia-hd rv">
+    <div class="s-label">Dialogue</div>
+    <h2 class="s-title"><span data-zh>对话 · 舞蹈与生命</span><span data-en style="letter-spacing:.05em">On Dance & Life</span></h2>
+  </div>
+
+  <div class="dia-list">
+    <div class="dia-item rv">
+      <p class="dia-q"><span data-zh>舞蹈对你意味着什么？</span><span data-en>What does dance mean to you?</span></p>
+      <div data-zh-block><p class="dia-a">在人形山川里，沉默的血翻涌成河——你要让它是真的。彼此被一种纯粹的热爱推动着，是遥不可及，又是冥冥注定，是历经千帆后的确信。用它的眼睛和身躯，去突围、去逐光、去野望。一次次醒来，一次次相信，在静穆的干燥中、在浓郁的湿润里——去写诗、去高歌、去跳舞。</p></div>
+      <div data-en-block><p class="dia-a">In the landscape of the human form, silent blood surges into rivers — and you must make it real. We are driven by a pure, shared love — something once unreachable, yet always destined, a conviction forged after weathering countless storms. With our eyes and bodies, we break through, chase the light, dream wildly. Awakening again and again, believing again and again, in still dryness and rich moisture alike — we write poetry, we sing, we dance.</p></div>
+    </div>
+
+    <div class="dia-item rv">
+      <p class="dia-q"><span data-zh>你如何看待身体与空间的关系？</span><span data-en>How do you see the relationship between body and space?</span></p>
+      <div data-zh-block><p class="dia-a">艺术从未高悬，它始终流淌在每个人的身体里。当舞者的指尖轻触展柜玻璃，文物仿佛被唤醒，与当代的呼吸产生共鸣，在静默中诉说永恒的故事。在德彪西《月光》的旋律中，提灯的舞者缓步前行，微光穿透博物馆的幽暗，如星火点亮长夜。河流是时间，而灯是永恒。这里没有观者与演者的区分，只有共同经历艺术洗礼的生命个体。博物馆的穹顶不再遥远，艺术的光芒照进了每一个普通人的日常。</p></div>
+      <div data-en-block><p class="dia-a">Art was never meant to hang above us — it has always flowed within every body. When a dancer's fingertips brush the glass of a display case, artifacts seem to awaken, resonating with our contemporary breath, telling eternal stories in silence. To the melody of Debussy's <em>Clair de Lune</em>, a lantern-bearing dancer moves slowly forward, soft light piercing the museum's darkness like starfire illuminating the long night. The river is time; the lantern is eternity. Here, there is no distinction between viewer and performer — only lives transformed by art together.</p></div>
+    </div>
+
+    <div class="dia-item rv">
+      <p class="dia-q"><span data-zh>忘我的时刻是什么样的？</span><span data-en>What does it feel like to lose yourself in dance?</span></p>
+      <div data-zh-block><p class="dia-a">忘我，是沉入意识的深海，触摸未被语言驯服的灵魂。舞者以身体为梭，在织绣纹样间穿行，灯火掠过之处，历史的经纬苏醒。在明清绘画展厅，肢体与山水对话：枝干舒展如笔锋，呼吸起伏似墨韵。边界在流动中松动，艺术不再是展柜内的静物，而是与生命同频的脉动。</p></div>
+      <div data-en-block><p class="dia-a">To forget the self is to descend into the deep sea of consciousness, to touch the soul untamed by language. The dancer becomes a shuttle, weaving through embroidered patterns; where lamplight passes, the warp and weft of history awaken. In the Ming and Qing painting galleries, the body converses with landscapes: branches unfurl like brushstrokes, breathing rises and falls like ink. Boundaries loosen in the flow — art is no longer a still object in a vitrine, but a pulse beating in rhythm with life.</p></div>
+    </div>
+
+    <div class="dia-item rv">
+      <p class="dia-q"><span data-zh>舞蹈如何让陌生人相连？</span><span data-en>How does dance connect strangers?</span></p>
+      <div data-zh-block><p class="dia-a">漫游者不再孤独。当多元的身体在空间中交织，当陌生的目光因艺术交汇，便成了共有的精神原乡。每个人都带着自己的故事而来，又在艺术的感召下，编织出新的集体记忆。即使终将散去，这份在艺术中获得的共鸣与感动，将成为继续前行的力量。舞者俯身时，山脉在脊背上隆起；扬手间，鱼鳍在指尖生长。万象在此和合，无界无疆——艺术终将超越形式，成为天地呼吸的节律。</p></div>
+      <div data-en-block><p class="dia-a">The wanderer is no longer alone. When diverse bodies interweave in space, when unfamiliar gazes converge through art, they become a shared spiritual homeland. Everyone arrives carrying their own story, and under art's calling, weaves new collective memories. Even when we eventually part, the resonance found through art becomes the strength to carry on. When a dancer bends, mountains rise along the spine; in the lift of a hand, fins grow at the fingertips. All things find harmony here, boundless and infinite — art transcends form to become the breathing rhythm of heaven and earth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="works-hd rv"><div class="s-label">Works</div><h2 class="s-title"><span data-zh>编创作品</span><span data-en style="letter-spacing:.05em">Choreographic Works</span></h2></div>
+
+  <div class="wk rv">
+    <div class="wk-img"><img src="images/1aa694300c0798d6b04430b3a880c516.jpeg" alt="万象和合"></div>
+    <div class="wk-info">
+      <div class="wk-num">01</div>
+      <h3 class="wk-title">万象和合</h3>
+      <p class="wk-sub">Harmony of All Things</p>
+      <div data-zh-block><p class="wk-desc">一部用身体"素描"天空的舞蹈。将人生境遇与云海万象交织，通过舞者的肢体哲学，探寻人生境界的心灵对话。是积雨云翻滚时的怒吼，也是雨后晴空的微笑。</p></div>
+      <div data-en-block><p class="wk-desc">A dance that "sketches" the sky with the body. Interweaving life's experiences with the myriad forms of clouds, this work explores a dialogue of the soul through the dancers' physical philosophy — the roar of cumulonimbus and the smile of a sky after rain.</p></div>
+      <p class="wk-desc" style="margin-top:10px;font-size:12.5px;color:var(--soft)"><span data-zh>演员：张尧睿 许逯彤 &nbsp;|&nbsp; 摄影：黄泓熙</span><span data-en>Dancers: Yaorui Zhang, Lutong Xu &nbsp;|&nbsp; Photo: Hongxi Huang</span></p>
+      <span class="wk-tag"><span data-zh>北京舞蹈大赛 决赛</span><span data-en>Beijing Dance Competition Finalist</span></span>
+    </div>
+  </div>
+
+  <div class="wk rv">
+    <div class="wk-img"><img src="images/IMG_3116.jpeg" alt="浩海逐光"></div>
+    <div class="wk-info">
+      <div class="wk-num">02</div>
+      <h3 class="wk-title">浩海逐光</h3>
+      <p class="wk-sub">Chasing Light Across the Sea</p>
+      <div data-zh-block><p class="wk-desc">海纳百川，不问出处；此起彼伏，承载万物；百转千回，逆风远逐。当水流终汇进大海，平等的灵魂触碰彼岸。《浩海逐光》以纱和人的互动，描绘出一幅万物在海洋翻腾中不断积蓄能量，周而复始，生生不息的画卷。</p></div>
+      <div data-en-block><p class="dia-a">The sea embraces all rivers, regardless of origin; rising and falling, it carries all things; through a thousand turns, it chases against the wind. When streams finally merge into the ocean, equal souls touch the far shore. Through the interplay of fabric and dancers, this work paints a tableau of all things churning within the ocean, ceaselessly gathering energy in an endless cycle of renewal.</p></div>
+      <span class="wk-tag"><span data-zh>2021 北京大学生舞蹈节 金奖</span><span data-en>2021 Beijing College Dance Festival Gold</span></span><span class="wk-tag"><span data-zh>优秀指导教师</span><span data-en>Outstanding Advisor</span></span>
+    </div>
+  </div>
+
+  <div class="wk rv">
+    <div class="wk-img"><img src="images/IMG_3118.jpeg" alt="生命的野望"></div>
+    <div class="wk-info">
+      <div class="wk-num">03</div>
+      <h3 class="wk-title">生命的野望</h3>
+      <p class="wk-sub">Ambition of Life</p>
+      <div data-zh-block><p class="wk-desc">心脏跳动迸发大地血脉，年轮流转锈刻生命辙痕。骤雨狂风，野火蔓延，百草恣意狂舞。春风拂过，万物拔节，翻涌出生命交响。舞蹈以道劲野草象征熠熠青年，与新时代同向同行，在中国大地深情野望，书写民族复兴篇章。她们是一群来自清华各院系舞蹈选修课的学生，因为对舞蹈无限的热爱而相聚。</p></div>
+      <div data-en-block><p class="wk-desc">Heartbeats pulse through the earth's veins; rings of time etch the tracks of life. Storms rage, wildfires spread, wild grasses dance unbridled. Spring winds pass, all things rise, surging into a symphony of life. The dance uses resilient wild grass as a symbol of radiant youth, marching in step with a new era. The dancers are students from across Tsinghua's departments, united by their boundless love of dance.</p></div>
+      <span class="wk-tag"><span data-zh>创作优秀奖</span><span data-en>Outstanding Choreography Award</span></span>
+    </div>
+  </div>
+
+  <div class="wk rv">
+    <div class="wk-img"><img src="images/ce7606b211e1c255aa66b9c1a985d989.jpeg" alt="Breakthrough"></div>
+    <div class="wk-info">
+      <div class="wk-num">04</div>
+      <h3 class="wk-title">Breakthrough</h3>
+      <p class="wk-sub"><span data-zh>突破 · 突围</span><span data-en>Breaking Free</span></p>
+      <div data-zh-block><p class="wk-desc">即便四肢被现实绑缚，心也扣上了枷锁，可是他们仍骄傲地昂着头。你听，不羁的灵魂在沸腾。你看，自由的生命在狂舞。"突破创新"是时代永恒的主题，舞蹈是由一卷平凡的彩色卷纸展开，它的一次次蜕变，和舞台丰富的空间运用，将演员从迷茫、到挣扎再到突破的主题层层深入地表现出来。</p></div>
+      <div data-en-block><p class="wk-desc">Even with limbs bound by reality and hearts shackled, they still hold their heads high with pride. Listen — untamed souls are burning. Look — free lives are dancing wildly. The dance unfolds from an ordinary roll of colored paper, and through its metamorphoses and rich use of stage space, the journey from confusion to struggle to breakthrough is revealed layer by layer.</p></div>
+      <span class="wk-tag"><span data-zh>2017 北京大学生舞蹈节 B组金奖</span><span data-en>2017 Beijing College Dance Festival Gold</span></span><span class="wk-tag">BeSeTo</span>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="videos" id="videos">
+  <div class="vid-hd rv"><div class="s-label">Videos</div><h2 class="s-title"><span data-zh>舞蹈影像</span><span data-en style="letter-spacing:.05em">Dance Films</span></h2></div>
+  <div class="vid-grid">
+    <div class="vid-card"><video controls playsinline preload="metadata"><source src="images/video1.mp4" type="video/mp4"></video></div>
+    <div class="vid-card"><video controls playsinline preload="metadata"><source src="images/video2.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gal-hd rv"><div class="s-label">Gallery</div><h2 class="s-title"><span data-zh>舞台瞬间</span><span data-en style="letter-spacing:.05em">On Stage</span></h2></div>
+  <div class="gal-grid">
+    <div class="g-item rv" onclick="olb(this)"><img src="images/b74bb19b477db444877666e497ede9ad.jpeg" alt loading="lazy"><span class="cap">万象和合 · 舞</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/IMG_3117.jpeg" alt loading="lazy"><span class="cap">浩海逐光 · 山峦</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/efe25b8a7285f9c1b6af233c15f5c79b.jpeg" alt loading="lazy"><span class="cap">万象和合 · 和</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/5b4e6f76346314be7d9077dbc00bd4fa.jpeg" alt loading="lazy"><span class="cap">暮光 · 流动</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/9d0120ae95a298fe20cf0362bc10402b.jpeg" alt loading="lazy"><span class="cap">双人舞 · 牵引</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/2168d7c62f4ec74295623f48c83bdcb9.jpeg" alt loading="lazy"><span class="cap">浩海逐光</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/f5cb422db3be3b1b8e82f187263bc9c0.jpeg" alt loading="lazy"><span class="cap">Breakthrough</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/4bbe1491e9cfffd2899dac9892dd33ca.jpeg" alt loading="lazy"><span class="cap">无界 · 舞台</span></div>
+    <div class="g-item rv" onclick="olb(this)"><img src="images/0a8ad405a36497d044c895235edb5fcd.jpeg" alt loading="lazy"><span class="cap">排练 · 瞬间</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="rv">
+    <div class="s-label">Contact</div>
+    <h2 class="ct-title"><span data-zh>与我联系</span><span data-en style="letter-spacing:.15em">Get in Touch</span></h2>
+    <p class="ct-desc"><span data-zh>如果您对舞蹈教学、演出合作或编创项目感兴趣，欢迎联系</span><span data-en>For inquiries about dance education, performance collaborations, or choreographic projects</span></p>
+    <div class="ct-links"><a href="#"><span data-zh>微信公众号</span><span data-en>WeChat</span></a><a href="#"><span data-zh>小红书</span><span data-en>RedNote</span></a><a href="#"><span data-zh>邮箱联系</span><span data-en>Email</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 <span data-zh>黄晓夏</span><span data-en>Xiaoxia Huang</span></span>
+  <span><span data-zh>舞蹈编导 · 舞蹈教师</span><span data-en>Choreographer · Dance Educator</span></span>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+function olb(el){const lb=document.getElementById('lb');lb.querySelector('img').src=el.querySelector('img').src;lb.classList.add('on');document.body.style.overflow='hidden'}
+function clb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')clb()});
+function tm(){document.getElementById('mn').classList.toggle('open')}
+function cm(){document.getElementById('mn').classList.remove('open')}
+
+// Language toggle
+function toggleLang(){
+  document.body.classList.toggle('en');
+  const isEn=document.body.classList.contains('en');
+  document.querySelectorAll('.lang-toggle').forEach(tog=>{
+    tog.querySelector('span:first-child').classList.toggle('active',!isEn);
+    tog.querySelector('span:last-child').classList.toggle('active',isEn);
+  });
+  document.title=isEn?'Xiaoxia Huang — Choreographer · Dance Educator':'黄晓夏 — 舞蹈编导 · 舞蹈教师';
+}
+</script>
+</body>
+</html>
