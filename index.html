@@ -423,6 +423,7 @@ body.en [data-zh-block]{display:none}
   </div>
 </section>
 
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="rv">
@@ -431,7 +432,7 @@ body.en [data-zh-block]{display:none}
     <p class="ct-desc"><span data-zh>如果您对舞蹈教学、演出合作或编创项目感兴趣，欢迎联系</span><span data-en>For inquiries about dance education, performance collaborations, or choreographic projects</span></p>
     <p class="ct-location">Beijing / New York</p>
     <div class="ct-links">
-      <a href="/cdn-cgi/l/email-protection#c0b8a8f3f0f7f0e6e3f6f4fbaeb9b5eea5a4b5">Email</a>
+      <a href="mailto:xh3070%40nyu.edu">Email</a>
       <a href="#"><span data-zh>微信公众号</span><span data-en>WeChat</span></a>
       <a href="#"><span data-zh>小红书</span><span data-en>RedNote</span></a>
     </div>
@@ -443,20 +444,25 @@ body.en [data-zh-block]{display:none}
   <span><span data-zh>舞蹈编导 · 舞蹈教师</span><span data-en>Choreographer · Dance Educator</span></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-function olb(el){const lb=document.getElementById('lb');lb.querySelector('img').src=el.querySelector('img').src;lb.classList.add('on');document.body.style.overflow='hidden'}
-function clb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')clb()});
-function tm(){document.getElementById('mn').classList.toggle('open')}
-function cm(){document.getElementById('mn').classList.remove('open')}
+<script>
+var nav=document.getElementById("nav");
+window.addEventListener("scroll",function(){nav.classList.toggle("scrolled",scrollY>80)});
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("on")})},{threshold:.1,rootMargin:"0px 0px -30px 0px"});
+document.querySelectorAll(".rv").forEach(function(el){obs.observe(el)});
+function olb(el){var lb=document.getElementById("lb");lb.querySelector("img").src=el.querySelector("img").src;lb.classList.add("on");document.body.style.overflow="hidden"}
+function clb(){document.getElementById("lb").classList.remove("on");document.body.style.overflow=""}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")clb()});
+function tm(){document.getElementById("mn").classList.toggle("open")}
+function cm(){document.getElementById("mn").classList.remove("open")}
 function toggleLang(){
-  document.body.classList.toggle('en');
-  const isEn=document.body.classList.contains('en');
-  document.querySelectorAll('.lang-toggle').forEach(tog=>{
-    tog.querySelector('span:first-child').classList.toggle('active',!isEn);
-    tog.querySelector('span:last-child').classList.toggle('active',isEn);
-  })
+  document.body.classList.toggle("en");
+  var isEn=document.body.classList.contains("en");
+  document.querySelectorAll(".lang-toggle").forEach(function(tog){
+    tog.querySelector("span:first-child").classList.toggle("active",!isEn);
+    tog.querySelector("span:last-child").classList.toggle("active",isEn);
+  });
+  document.title=isEn?"Xiaoxia Huang - Choreographer":"黄晓夏 - 舞蹈编导 · 舞蹈教师";
+}
+</script>
+</body>
+</html>
