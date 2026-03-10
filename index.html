@@ -73,6 +73,11 @@ section,footer,.divider{position:relative;z-index:1}
 .role-tag{padding:6px 16px;border:1px solid rgba(176,152,128,.15);font-family:'Cormorant',serif;font-size:12.5px;letter-spacing:3px;color:var(--mid);font-weight:400;background:rgba(250,248,245,.6);text-transform:uppercase}
 .about-sig{margin-top:32px;font-family:'Cormorant',serif;font-style:italic;font-size:18px;color:var(--heading);letter-spacing:3px}
 
+.cv-section{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.cv-heading{font-family:var(--nav-font);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--heading);font-weight:400;margin-bottom:12px}
+.cv-item{font-size:14px;color:var(--mid);line-height:1.8;display:flex;gap:12px;align-items:baseline}
+.cv-year{font-family:var(--nav-font);font-size:11px;color:var(--soft);letter-spacing:1px;flex-shrink:0;min-width:52px}
+
 .pina{padding:110px 12vw;text-align:center;background:rgba(250,248,245,.7);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .pina-q{font-family:'Cormorant',serif;font-size:clamp(20px,2.8vw,32px);font-weight:300;font-style:italic;line-height:2;color:var(--charcoal);max-width:660px;margin:0 auto}
 .pina-a{margin-top:28px;font-family:'Cormorant',serif;font-size:14px;color:var(--soft);letter-spacing:6px;font-weight:400;text-transform:uppercase}
@@ -110,7 +115,9 @@ section,footer,.divider{position:relative;z-index:1}
 .wk-img:hover img{filter:saturate(1) brightness(1.02);transform:scale(1.02)}
 .wk-num{font-family:'Cormorant',serif;font-size:56px;font-weight:300;color:rgba(176,152,128,.12);line-height:1;margin-bottom:12px}
 .wk-title{font-family:'Noto Serif SC',serif;font-size:clamp(22px,2.8vw,36px);font-weight:200;color:var(--heading);letter-spacing:.2em;margin-bottom:10px}
-.wk-sub{font-family:'Cormorant',serif;font-style:italic;font-size:15.5px;color:var(--soft);letter-spacing:3px;margin-bottom:20px}
+.wk-sub{font-family:var(--display);font-style:italic;font-size:15.5px;color:var(--soft);letter-spacing:3px;margin-bottom:8px}
+.wk-meta{font-family:var(--nav-font);font-size:11px;color:var(--soft);letter-spacing:2px;margin-bottom:4px}
+.wk-music{font-style:italic;font-family:var(--body-en);font-size:12px;letter-spacing:0;margin-bottom:16px}
 .wk-desc{font-size:15px;line-height:2.1;color:var(--mid);font-weight:400;letter-spacing:.02em}
 .wk-tag{display:inline-block;margin-top:18px;padding:5px 14px;border:1px solid rgba(176,152,128,.18);font-family:'Cormorant',serif;font-size:12px;letter-spacing:3px;color:var(--heading);font-weight:400;margin-right:8px;background:rgba(250,248,245,.5);text-transform:uppercase}
 
@@ -133,7 +140,8 @@ section,footer,.divider{position:relative;z-index:1}
 
 .contact{padding:140px 8vw;text-align:center}
 .ct-title{font-family:'Noto Serif SC',serif;font-size:clamp(28px,4.5vw,52px);font-weight:200;letter-spacing:.3em;color:var(--heading);margin-bottom:16px}
-.ct-desc{font-size:15px;color:var(--mid);letter-spacing:2px;font-weight:400;line-height:2;max-width:440px;margin:0 auto 44px}
+.ct-desc{font-size:15px;color:var(--mid);letter-spacing:2px;font-weight:400;line-height:2;max-width:440px;margin:0 auto 20px}
+.ct-location{font-family:var(--nav-font);font-size:12px;color:var(--soft);letter-spacing:4px;margin-bottom:36px;text-transform:uppercase}
 .ct-links{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
 .ct-links a{font-family:'Cormorant',serif;color:var(--soft);text-decoration:none;font-size:13px;letter-spacing:4px;font-weight:400;padding:8px 0;border-bottom:1px solid transparent;transition:all .4s;text-transform:uppercase}
 .ct-links a:hover{color:var(--heading);border-bottom-color:var(--heading)}
@@ -175,10 +183,9 @@ body.en [data-zh-block]{display:none}
 <div class="lb" id="lb" onclick="clb()"><button class="lb-x">close</button><img src="" alt=""></div>
 
 <div class="mob-nav" id="mn">
-  <a href="#about" onclick="cm()"><span data-zh>关于</span><span data-en>About</span></a>
-  <a href="#philo" onclick="cm()"><span data-zh>理念</span><span data-en>Philosophy</span></a>
-  <a href="#dialogue" onclick="cm()"><span data-zh>对话</span><span data-en>Dialogue</span></a>
   <a href="#works" onclick="cm()"><span data-zh>作品</span><span data-en>Works</span></a>
+  <a href="#about" onclick="cm()"><span data-zh>关于</span><span data-en>About</span></a>
+  <a href="#dialogue" onclick="cm()"><span data-zh>对话</span><span data-en>Dialogue</span></a>
   <a href="#gallery" onclick="cm()"><span data-zh>影像</span><span data-en>Gallery</span></a>
   <a href="#contact" onclick="cm()"><span data-zh>联系</span><span data-en>Contact</span></a>
   <div class="lang-toggle" onclick="toggleLang()"><span id="mlzh" class="active">中</span><span>|</span><span id="mlen">EN</span></div>
@@ -188,10 +195,9 @@ body.en [data-zh-block]{display:none}
   <div class="nav-logo">黄 晓 夏</div>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#about"><span data-zh>关于</span><span data-en>About</span></a></li>
-      <li><a href="#philo"><span data-zh>理念</span><span data-en>Philosophy</span></a></li>
-      <li><a href="#dialogue"><span data-zh>对话</span><span data-en>Dialogue</span></a></li>
       <li><a href="#works"><span data-zh>作品</span><span data-en>Works</span></a></li>
+      <li><a href="#about"><span data-zh>关于</span><span data-en>About</span></a></li>
+      <li><a href="#dialogue"><span data-zh>对话</span><span data-en>Dialogue</span></a></li>
       <li><a href="#gallery"><span data-zh>影像</span><span data-en>Gallery</span></a></li>
       <li><a href="#contact"><span data-zh>联系</span><span data-en>Contact</span></a></li>
     </ul>
@@ -220,17 +226,33 @@ body.en [data-zh-block]{display:none}
     <div class="s-label">About</div>
     <h2 class="s-title"><span data-zh>以身体书写诗篇</span><span data-en style="letter-spacing:.05em">Writing Poetry with the Body</span></h2>
     <div data-zh-block>
-      <p class="about-desc">黄晓夏，舞蹈编导，舞蹈教师。现任<span class="hl">清华大学艺术教育中心</span>舞蹈教师，<span class="hl">清华大学学生无界舞蹈剧场（THU-BDT）</span>指导教师。<br><br>她相信身体是最诚实的语言，每一次呼吸都是一首诗。在舞台与生活的交界处，她用肢体编织光影，将人生的悲欢离合化为空气中流动的诗篇。<br><br>她的作品融合东方美学与当代舞蹈语汇，带领一群来自清华各院系、因热爱舞蹈而相聚的学生，在传统与现代之间寻找属于自己的艺术表达。</p>
+      <p class="about-desc">黄晓夏，舞蹈编导，舞蹈教师，艺术总监。曾任<span class="hl">清华大学艺术教育中心</span>舞蹈教师（2013-2025），创立<span class="hl">清华大学学生无界舞蹈剧场（THU-BDT）</span>——清华首个由非舞蹈专业学生组成的舞蹈剧场团体。现于<span class="hl">纽约大学</span>攻读舞蹈教育硕士。<br><br>十余年间，她开设了五门面向全校本科生和研究生的舞蹈实践课程，带领跨学科学生完成五部原创现代舞作品的创作与舞台呈现，作品多次登上国家级文化节庆、新年晚会和博物馆沉浸式演出平台。</p>
     </div>
     <div data-en-block>
-      <p class="about-desc">Xiaoxia Huang is a choreographer and dance educator. She currently serves as a dance instructor at <span class="hl">Tsinghua University's Art Education Center</span> and faculty advisor of <span class="hl">Tsinghua Boundless Dance Theatre (THU-BDT)</span>.<br><br>She believes the body is the most honest language, and every breath is a poem. At the intersection of stage and life, she weaves light and shadow through movement, transforming the joys and sorrows of life into poetry flowing through air.<br><br>Her works blend Eastern aesthetics with contemporary dance vocabulary, leading students from across Tsinghua's departments — united by their love of dance — to find their own artistic expression between tradition and modernity.</p>
+      <p class="about-desc">Xiaoxia Huang is a dance educator, choreographer, and artistic director based in <span class="hl">Beijing and New York</span>. She served as dance instructor at <span class="hl">Tsinghua University's Center for Arts Education</span> (2013–2025), where she founded <span class="hl">Boundless Theater</span> — the university's first dance-theater collective composed entirely of non-dance majors. She is currently an M.A. candidate in Dance Education at <span class="hl">New York University</span>.<br><br>Over a decade, she developed five university-wide practice-based dance courses and led interdisciplinary cohorts in creating five original modern dance works, presented at major cultural festivals, national galas, and museum-based immersive platforms.</p>
     </div>
+
+    <div class="cv-section">
+      <h3 class="cv-heading"><span data-zh>教育背景</span><span data-en>Education</span></h3>
+      <div class="cv-item"><span class="cv-year">2025–</span><span data-zh>纽约大学 · 舞蹈教育硕士（在读）</span><span data-en>New York University · M.A. Dance Education</span></div>
+      <div class="cv-item"><span class="cv-year">2011–12</span><span data-zh>美国东北大学 · 非营利组织管理硕士</span><span data-en>Northeastern University · M.S. Nonprofit Management</span></div>
+      <div class="cv-item"><span class="cv-year">2004–08</span><span data-zh>中央民族大学 · 舞蹈教育学士</span><span data-en>Minzu University of China · B.A. Dance Education</span></div>
+    </div>
+
+    <div class="cv-section">
+      <h3 class="cv-heading"><span data-zh>荣誉与获奖</span><span data-en>Selected Honors</span></h3>
+      <div class="cv-item"><span class="cv-year">2025</span><span data-zh>清华大学教学成果奖 二等奖</span><span data-en>Second Prize, Tsinghua Teaching Achievement Award</span></div>
+      <div class="cv-item"><span class="cv-year">2021</span><span data-zh>全国美育改革创新优秀案例 一等奖</span><span data-en>First Prize, National Aesthetic Education Innovation</span></div>
+      <div class="cv-item"><span class="cv-year">2019–20</span><span data-zh>清华大学优秀教学奖</span><span data-en>Excellent Teaching Award, Tsinghua University</span></div>
+    </div>
+
     <div class="about-roles">
       <span class="role-tag"><span data-zh>舞蹈编导</span><span data-en>Choreographer</span></span>
-      <span class="role-tag"><span data-zh>清华大学舞蹈教师</span><span data-en>Tsinghua Dance Instructor</span></span>
-      <span class="role-tag"><span data-zh>无界舞蹈剧场 指导教师</span><span data-en>Boundless Dance Theatre Advisor</span></span>
+      <span class="role-tag"><span data-zh>舞蹈教育者</span><span data-en>Dance Educator</span></span>
+      <span class="role-tag"><span data-zh>艺术总监</span><span data-en>Artistic Director</span></span>
+      <span class="role-tag">Beijing / New York</span>
     </div>
-    <div class="about-sig">— Xiaoxia Huang</div>
+    <div class="about-sig">— Xiaoxia Huang (Summer)</div>
   </div>
 </section>
 
@@ -262,22 +284,9 @@ body.en [data-zh-block]{display:none}
   </div>
 </section>
 
-<!-- INTERLUDE -->
-<section class="interlude">
-  <div class="int-bg"></div>
-  <div class="int-ov"></div>
-  <div class="int-ct rv">
-    <div data-zh-block>
-      <p>当舞者的指尖划过空气留白的瞬息，<br>当衣摆扬起带着光影的流金，<br>你会突然理解——<br><br>原来云的运动就是天空的舞蹈，<br>而我们每个人身体里，<br>都藏着一片等待被唤醒的<span style="color:var(--accent)">浩瀚云海</span>。</p>
-    </div>
-    <div data-en-block>
-      <p>When a dancer's fingertips trace<br>a fleeting pause through the air,<br>when fabric rises catching streams of light —<br><br>you suddenly understand:<br>the movement of clouds is the sky's dance,<br>and within each of us hides<br>a <span style="color:var(--accent)">vast ocean of clouds</span> waiting to be awakened.</p>
-    </div>
-    <span class="int-dash"></span>
-  </div>
-</section>
+<!-- straight into dialogue after philosophy -->
 
-<!-- DIALOGUE — 对话：舞蹈哲学 -->
+<!-- DIALOGUE — 精简版：舞蹈哲学 -->
 <section class="dialogue" id="dialogue">
   <div class="dia-hd rv">
     <div class="s-label">Dialogue</div>
@@ -287,26 +296,14 @@ body.en [data-zh-block]{display:none}
   <div class="dia-list">
     <div class="dia-item rv">
       <p class="dia-q"><span data-zh>舞蹈对你意味着什么？</span><span data-en>What does dance mean to you?</span></p>
-      <div data-zh-block><p class="dia-a">在人形山川里，沉默的血翻涌成河——你要让它是真的。彼此被一种纯粹的热爱推动着，是遥不可及，又是冥冥注定，是历经千帆后的确信。用它的眼睛和身躯，去突围、去逐光、去野望。一次次醒来，一次次相信，在静穆的干燥中、在浓郁的湿润里——去写诗、去高歌、去跳舞。</p></div>
-      <div data-en-block><p class="dia-a">In the landscape of the human form, silent blood surges into rivers — and you must make it real. We are driven by a pure, shared love — something once unreachable, yet always destined, a conviction forged after weathering countless storms. With our eyes and bodies, we break through, chase the light, dream wildly. Awakening again and again, believing again and again, in still dryness and rich moisture alike — we write poetry, we sing, we dance.</p></div>
+      <div data-zh-block><p class="dia-a">在人形山川里，沉默的血翻涌成河——你要让它是真的。彼此被一种纯粹的热爱推动着，是遥不可及，又是冥冥注定，是历经千帆后的确信。用它的眼睛和身躯，去突围、去逐光、去野望——去写诗、去高歌、去跳舞。</p></div>
+      <div data-en-block><p class="dia-a">In the landscape of the human form, silent blood surges into rivers — and you must make it real. We are driven by a pure, shared love — something once unreachable, yet always destined, a conviction forged after countless storms. With our eyes and bodies, we break through, chase the light, dream wildly — we write poetry, we sing, we dance.</p></div>
     </div>
 
-    <div class="dia-item rv">
-      <p class="dia-q"><span data-zh>你如何看待身体与空间的关系？</span><span data-en>How do you see the relationship between body and space?</span></p>
-      <div data-zh-block><p class="dia-a">艺术从未高悬，它始终流淌在每个人的身体里。当舞者的指尖轻触展柜玻璃，文物仿佛被唤醒，与当代的呼吸产生共鸣，在静默中诉说永恒的故事。在德彪西《月光》的旋律中，提灯的舞者缓步前行，微光穿透博物馆的幽暗，如星火点亮长夜。河流是时间，而灯是永恒。这里没有观者与演者的区分，只有共同经历艺术洗礼的生命个体。博物馆的穹顶不再遥远，艺术的光芒照进了每一个普通人的日常。</p></div>
-      <div data-en-block><p class="dia-a">Art was never meant to hang above us — it has always flowed within every body. When a dancer's fingertips brush the glass of a display case, artifacts seem to awaken, resonating with our contemporary breath, telling eternal stories in silence. To the melody of Debussy's <em>Clair de Lune</em>, a lantern-bearing dancer moves slowly forward, soft light piercing the museum's darkness like starfire illuminating the long night. The river is time; the lantern is eternity. Here, there is no distinction between viewer and performer — only lives transformed by art together.</p></div>
-    </div>
-
-    <div class="dia-item rv">
-      <p class="dia-q"><span data-zh>忘我的时刻是什么样的？</span><span data-en>What does it feel like to lose yourself in dance?</span></p>
-      <div data-zh-block><p class="dia-a">忘我，是沉入意识的深海，触摸未被语言驯服的灵魂。舞者以身体为梭，在织绣纹样间穿行，灯火掠过之处，历史的经纬苏醒。在明清绘画展厅，肢体与山水对话：枝干舒展如笔锋，呼吸起伏似墨韵。边界在流动中松动，艺术不再是展柜内的静物，而是与生命同频的脉动。</p></div>
-      <div data-en-block><p class="dia-a">To forget the self is to descend into the deep sea of consciousness, to touch the soul untamed by language. The dancer becomes a shuttle, weaving through embroidered patterns; where lamplight passes, the warp and weft of history awaken. In the Ming and Qing painting galleries, the body converses with landscapes: branches unfurl like brushstrokes, breathing rises and falls like ink. Boundaries loosen in the flow — art is no longer a still object in a vitrine, but a pulse beating in rhythm with life.</p></div>
-    </div>
-
-    <div class="dia-item rv">
-      <p class="dia-q"><span data-zh>舞蹈如何让陌生人相连？</span><span data-en>How does dance connect strangers?</span></p>
-      <div data-zh-block><p class="dia-a">漫游者不再孤独。当多元的身体在空间中交织，当陌生的目光因艺术交汇，便成了共有的精神原乡。每个人都带着自己的故事而来，又在艺术的感召下，编织出新的集体记忆。即使终将散去，这份在艺术中获得的共鸣与感动，将成为继续前行的力量。舞者俯身时，山脉在脊背上隆起；扬手间，鱼鳍在指尖生长。万象在此和合，无界无疆——艺术终将超越形式，成为天地呼吸的节律。</p></div>
-      <div data-en-block><p class="dia-a">The wanderer is no longer alone. When diverse bodies interweave in space, when unfamiliar gazes converge through art, they become a shared spiritual homeland. Everyone arrives carrying their own story, and under art's calling, weaves new collective memories. Even when we eventually part, the resonance found through art becomes the strength to carry on. When a dancer bends, mountains rise along the spine; in the lift of a hand, fins grow at the fingertips. All things find harmony here, boundless and infinite — art transcends form to become the breathing rhythm of heaven and earth.</p></div>
+    <div class="dia-item rv" style="border-bottom:none;padding-bottom:0;margin-bottom:0">
+      <p class="dia-q"><span data-zh>你如何看待艺术与生命的关系？</span><span data-en>How do you see the relationship between art and life?</span></p>
+      <div data-zh-block><p class="dia-a">艺术从未高悬，它始终流淌在每个人的身体里。漫游者不再孤独——当多元的身体在空间中交织，当陌生的目光因艺术交汇，便成了共有的精神原乡。舞者俯身时，山脉在脊背上隆起；扬手间，鱼鳍在指尖生长。万象在此和合，无界无疆——艺术终将超越形式，成为天地呼吸的节律。</p></div>
+      <div data-en-block><p class="dia-a">Art was never meant to hang above us — it has always flowed within every body. The wanderer is no longer alone: when diverse bodies interweave in space, when unfamiliar gazes converge through art, they become a shared spiritual homeland. When a dancer bends, mountains rise along the spine; in the lift of a hand, fins grow at the fingertips. All things find harmony here, boundless and infinite — art transcends form to become the breathing rhythm of heaven and earth.</p></div>
     </div>
   </div>
 </section>
@@ -320,23 +317,26 @@ body.en [data-zh-block]{display:none}
     <div class="wk-info">
       <div class="wk-num">01</div>
       <h3 class="wk-title">万象和合</h3>
-      <p class="wk-sub">Harmony of All Things</p>
-      <div data-zh-block><p class="wk-desc">一部用身体"素描"天空的舞蹈。将人生境遇与云海万象交织，通过舞者的肢体哲学，探寻人生境界的心灵对话。是积雨云翻滚时的怒吼，也是雨后晴空的微笑。</p></div>
-      <div data-en-block><p class="wk-desc">A dance that "sketches" the sky with the body. Interweaving life's experiences with the myriad forms of clouds, this work explores a dialogue of the soul through the dancers' physical philosophy — the roar of cumulonimbus and the smile of a sky after rain.</p></div>
-      <p class="wk-desc" style="margin-top:10px;font-size:12.5px;color:var(--soft)"><span data-zh>演员：张尧睿 许逯彤 &nbsp;|&nbsp; 摄影：黄泓熙</span><span data-en>Dancers: Yaorui Zhang, Lutong Xu &nbsp;|&nbsp; Photo: Hongxi Huang</span></p>
-      <span class="wk-tag"><span data-zh>北京舞蹈大赛 决赛</span><span data-en>Beijing Dance Competition Finalist</span></span>
+      <p class="wk-sub">Echoes of Resonance · 2025</p>
+      <p class="wk-meta"><span data-zh>原创现代舞 · 18位舞者</span><span data-en>Original Modern Dance · 18 dancers</span></p>
+      <p class="wk-meta wk-music">Music: Rain, in Your Black Eyes — Ezio Bosso</p>
+      <div data-zh-block><p class="wk-desc">一部用身体"素描"天空的舞蹈。将人生境遇与云海万象交织，通过舞者的肢体哲学，探寻人生境界的心灵对话。是积雨云翻滚时的怒吼，也是雨后晴空的微笑。这不仅仅是在跳云的故事，更是在理解自己，理解人与人，人与自然的关系。</p></div>
+      <div data-en-block><p class="wk-desc">A contemporary dance work that uses the imagery of clouds to examine human existence, emotional cycles, and connection. Through ensemble movement, shifting density, and continuous physical flow, dancers form a shared kinetic landscape where memory, impermanence, and resonance emerge through collective motion.</p></div>
+      <span class="wk-tag"><span data-zh>第19届北京舞蹈大赛 三等奖</span><span data-en>Third Prize, 19th Beijing Dance Competition</span></span>
     </div>
   </div>
 
   <div class="wk rv">
-    <div class="wk-img"><img src="images/IMG_3116.jpeg" alt="浩海逐光"></div>
+    <div class="wk-img"><img src="images/f5cb422db3be3b1b8e82f187263bc9c0.jpeg" alt="不期而遇"></div>
     <div class="wk-info">
       <div class="wk-num">02</div>
-      <h3 class="wk-title">浩海逐光</h3>
-      <p class="wk-sub">Chasing Light Across the Sea</p>
-      <div data-zh-block><p class="wk-desc">海纳百川，不问出处；此起彼伏，承载万物；百转千回，逆风远逐。当水流终汇进大海，平等的灵魂触碰彼岸。《浩海逐光》以纱和人的互动，描绘出一幅万物在海洋翻腾中不断积蓄能量，周而复始，生生不息的画卷。</p></div>
-      <div data-en-block><p class="dia-a">The sea embraces all rivers, regardless of origin; rising and falling, it carries all things; through a thousand turns, it chases against the wind. When streams finally merge into the ocean, equal souls touch the far shore. Through the interplay of fabric and dancers, this work paints a tableau of all things churning within the ocean, ceaselessly gathering energy in an endless cycle of renewal.</p></div>
-      <span class="wk-tag"><span data-zh>2021 北京大学生舞蹈节 金奖</span><span data-en>2021 Beijing College Dance Festival Gold</span></span><span class="wk-tag"><span data-zh>优秀指导教师</span><span data-en>Outstanding Advisor</span></span>
+      <h3 class="wk-title"><span data-zh>不期而遇</span><span data-en>Serendipity</span></h3>
+      <p class="wk-sub">Serendipity · 2025</p>
+      <p class="wk-meta"><span data-zh>原创现代舞 · 14位舞者</span><span data-en>Original Modern Dance · 14 dancers</span></p>
+      <p class="wk-meta wk-music">Music: Flowers — Adrian Berenguer</p>
+      <div data-zh-block><p class="wk-desc">偶然相遇由无形的联结引导。当受过训练的身体与日常的身体相遇，艺术消融于生活之中，揭示出灵感不是等来的，而是在我们相遇的瞬间诞生的。清华大学艺术博物馆沉浸式演出项目"即使漫游"开场作品。</p></div>
+      <div data-en-block><p class="wk-desc">Where chance encounters are guided by invisible connections. Through the meeting of trained and everyday bodies, art dissolves into life, revealing that inspiration is not awaited, but born in the moment we meet. Opening work of the 2025 immersive performance project at Tsinghua University Art Museum.</p></div>
+      <span class="wk-tag"><span data-zh>清华大学艺术博物馆 沉浸式演出</span><span data-en>Tsinghua Art Museum Immersive Performance</span></span>
     </div>
   </div>
 
@@ -345,22 +345,39 @@ body.en [data-zh-block]{display:none}
     <div class="wk-info">
       <div class="wk-num">03</div>
       <h3 class="wk-title">生命的野望</h3>
-      <p class="wk-sub">Ambition of Life</p>
-      <div data-zh-block><p class="wk-desc">心脏跳动迸发大地血脉，年轮流转锈刻生命辙痕。骤雨狂风，野火蔓延，百草恣意狂舞。春风拂过，万物拔节，翻涌出生命交响。舞蹈以道劲野草象征熠熠青年，与新时代同向同行，在中国大地深情野望，书写民族复兴篇章。她们是一群来自清华各院系舞蹈选修课的学生，因为对舞蹈无限的热爱而相聚。</p></div>
-      <div data-en-block><p class="wk-desc">Heartbeats pulse through the earth's veins; rings of time etch the tracks of life. Storms rage, wildfires spread, wild grasses dance unbridled. Spring winds pass, all things rise, surging into a symphony of life. The dance uses resilient wild grass as a symbol of radiant youth, marching in step with a new era. The dancers are students from across Tsinghua's departments, united by their boundless love of dance.</p></div>
-      <span class="wk-tag"><span data-zh>创作优秀奖</span><span data-en>Outstanding Choreography Award</span></span>
+      <p class="wk-sub">The Untamed Vitality of Life · 2023</p>
+      <p class="wk-meta"><span data-zh>原创现代舞 · 16位舞者</span><span data-en>Original Modern Dance · 16 dancers</span></p>
+      <p class="wk-meta wk-music">Music: Lost but Won — Hans Zimmer</p>
+      <div data-zh-block><p class="wk-desc">心脏跳动迸发大地血脉，年轮流转锈刻生命辙痕。骤雨狂风，野火蔓延，百草恣意狂舞。春风拂过，万物拔节，翻涌出生命交响。舞蹈以道劲野草象征熠熠青年，与新时代同向同行，在中国大地深情野望，书写民族复兴篇章。</p></div>
+      <div data-en-block><p class="wk-desc">An original modern dance inspired by the cyclical vitality of nature. Grounded movement, collective rhythm, and sustained physical intensity articulate endurance and renewal, revealing a resilient life force that persists and re-emerges over time. All performers were students across multiple academic disciplines at Tsinghua University.</p></div>
+      <span class="wk-tag"><span data-zh>北京大学生舞蹈节 金奖</span><span data-en>Gold Award, Beijing College Dance Festival</span></span><span class="wk-tag"><span data-zh>最佳编导奖</span><span data-en>Best Choreography</span></span>
+    </div>
+  </div>
+
+  <div class="wk rv">
+    <div class="wk-img"><img src="images/IMG_3116.jpeg" alt="浩海逐光"></div>
+    <div class="wk-info">
+      <div class="wk-num">04</div>
+      <h3 class="wk-title">浩海逐光</h3>
+      <p class="wk-sub">Chasing the Light Across the Vast Sea · 2021</p>
+      <p class="wk-meta"><span data-zh>原创现代舞 · 16位舞者</span><span data-en>Original Modern Dance · 16 dancers</span></p>
+      <p class="wk-meta wk-music">Music: Cloud Atlas End Title — Tom Tykwer; A Place in Heaven — Thomas Bergersen</p>
+      <div data-zh-block><p class="wk-desc">海纳百川，不问出处；此起彼伏，承载万物；百转千回，逆风远逐。当水流终汇进大海，平等的灵魂触碰彼岸。以纱和人的互动，描绘出一幅万物在海洋翻腾中不断积蓄能量，周而复始，生生不息的画卷。</p></div>
+      <div data-en-block><p class="wk-desc">Inspired by poetic and philosophical reflections on the sea, this work examines the dynamic relationship between human will and vast natural forces. The choreography moves between struggle and calm as dancers embody the sea as both challenge and refuge.</p></div>
+      <span class="wk-tag"><span data-zh>北京大学生舞蹈节 金奖</span><span data-en>Gold Award, Beijing College Dance Festival</span></span><span class="wk-tag"><span data-zh>优秀指导教师</span><span data-en>Outstanding Instructor</span></span>
     </div>
   </div>
 
   <div class="wk rv">
     <div class="wk-img"><img src="images/ce7606b211e1c255aa66b9c1a985d989.jpeg" alt="Breakthrough"></div>
     <div class="wk-info">
-      <div class="wk-num">04</div>
+      <div class="wk-num">05</div>
       <h3 class="wk-title">Breakthrough</h3>
-      <p class="wk-sub"><span data-zh>突破 · 突围</span><span data-en>Breaking Free</span></p>
-      <div data-zh-block><p class="wk-desc">即便四肢被现实绑缚，心也扣上了枷锁，可是他们仍骄傲地昂着头。你听，不羁的灵魂在沸腾。你看，自由的生命在狂舞。"突破创新"是时代永恒的主题，舞蹈是由一卷平凡的彩色卷纸展开，它的一次次蜕变，和舞台丰富的空间运用，将演员从迷茫、到挣扎再到突破的主题层层深入地表现出来。</p></div>
-      <div data-en-block><p class="wk-desc">Even with limbs bound by reality and hearts shackled, they still hold their heads high with pride. Listen — untamed souls are burning. Look — free lives are dancing wildly. The dance unfolds from an ordinary roll of colored paper, and through its metamorphoses and rich use of stage space, the journey from confusion to struggle to breakthrough is revealed layer by layer.</p></div>
-      <span class="wk-tag"><span data-zh>2017 北京大学生舞蹈节 B组金奖</span><span data-en>2017 Beijing College Dance Festival Gold</span></span><span class="wk-tag">BeSeTo</span>
+      <p class="wk-sub"><span data-zh>突破 · 2017</span><span data-en>Breakthrough · 2017</span></p>
+      <p class="wk-meta"><span data-zh>当代舞 · 14位舞者</span><span data-en>Contemporary Dance · 14 dancers</span></p>
+      <div data-zh-block><p class="wk-desc">即便四肢被现实绑缚，心也扣上了枷锁，可是他们仍骄傲地昂着头。你听，不羁的灵魂在沸腾。你看，自由的生命在狂舞。舞蹈由一卷平凡的彩色卷纸展开，它的一次次蜕变，和舞台丰富的空间运用，将演员从迷茫、到挣扎再到突破的主题层层深入地表现出来。</p></div>
+      <div data-en-block><p class="wk-desc">Exploring constraint, resistance, and liberation, this ensemble-based work integrates movement, spatial design, and material transformation. A roll of colored paper functions as a visual and kinetic element guiding the progression from disorientation toward release.</p></div>
+      <span class="wk-tag"><span data-zh>北京大学生舞蹈节 金奖</span><span data-en>Gold Award, Beijing College Dance Festival</span></span><span class="wk-tag"><span data-zh>优秀编导奖</span><span data-en>Outstanding Choreography</span></span>
     </div>
   </div>
 </section>
@@ -396,7 +413,12 @@ body.en [data-zh-block]{display:none}
     <div class="s-label">Contact</div>
     <h2 class="ct-title"><span data-zh>与我联系</span><span data-en style="letter-spacing:.15em">Get in Touch</span></h2>
     <p class="ct-desc"><span data-zh>如果您对舞蹈教学、演出合作或编创项目感兴趣，欢迎联系</span><span data-en>For inquiries about dance education, performance collaborations, or choreographic projects</span></p>
-    <div class="ct-links"><a href="#"><span data-zh>微信公众号</span><span data-en>WeChat</span></a><a href="#"><span data-zh>小红书</span><span data-en>RedNote</span></a><a href="#"><span data-zh>邮箱联系</span><span data-en>Email</span></a></div>
+    <p class="ct-location">Beijing / New York</p>
+    <div class="ct-links">
+      <a href="/cdn-cgi/l/email-protection#0f77673c3f383f4f61767a216a6b7a">Email</a>
+      <a href="#"><span data-zh>微信公众号</span><span data-en>WeChat</span></a>
+      <a href="#"><span data-zh>小红书</span><span data-en>RedNote</span></a>
+    </div>
   </div>
 </section>
 
@@ -405,7 +427,7 @@ body.en [data-zh-block]{display:none}
   <span><span data-zh>舞蹈编导 · 舞蹈教师</span><span data-en>Choreographer · Dance Educator</span></span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
@@ -424,8 +446,4 @@ function toggleLang(){
     tog.querySelector('span:first-child').classList.toggle('active',!isEn);
     tog.querySelector('span:last-child').classList.toggle('active',isEn);
   });
-  document.title=isEn?'Xiaoxia Huang — Choreographer · Dance Educator':'黄晓夏 — 舞蹈编导 · 舞蹈教师';
-}
-</script>
-</body>
-</html>
+  d
